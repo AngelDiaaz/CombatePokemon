@@ -15,71 +15,8 @@ public class TipoPokemon {
 	
 	public String getNombre() {
 		return nombre;
-		
-//		String tipo = null;
-//
-//		switch (nombre.toLowerCase()) {
-//		case "bicho":
-//			tipo = "bicho";
-//			break;
-//		case "dragon":
-//			tipo = "dragon";
-//			break;
-//		case "electrico":
-//			tipo = "electrico";
-//			break;
-//		case "hada":
-//			tipo = "hada";
-//			break;
-//		case "lucha":
-//			tipo = "lucha";
-//			break;
-//		case "fuego":
-//			tipo = "fuego";
-//			break;
-//		case "siniestro":
-//			tipo = "siniestro";
-//			break;
-//		case "volador":
-//			tipo = "volador";
-//			break;
-//		case "fantasma":
-//			tipo = "fantasma";
-//			break;
-//		case "planta":
-//			tipo = "planta";
-//			break;
-//		case "tierra":
-//			tipo = "tierra";
-//			break;
-//		case "hielo":
-//			tipo = "hielo";
-//			break;
-//		case "normal":
-//			tipo = "normal";
-//			break;
-//		case "veneno":
-//			tipo = "veneno";
-//			break;
-//		case "psiquico":
-//			tipo = "psiquico";
-//			break;
-//		case "roca":
-//			tipo = "roca";
-//			break;
-//		case "acero":
-//			tipo = "acero";
-//			break;
-//		case "agua":
-//			tipo = "agua";
-//			break;
-//		default:
-//			tipo = "No existe el tipo que de pokemon que has insertado";
-//			break;
-//		}
-//
-//		return tipo;
 	}
+
 	
 	/**
 	 * Te dice la efectividad que tiene un ataque de un tipo de pokemon hacia otro tipo de pokemon

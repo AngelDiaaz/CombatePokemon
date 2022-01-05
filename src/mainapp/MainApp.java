@@ -30,7 +30,7 @@ public class MainApp {
 		TipoPokemon nada = new TipoPokemon("");
 		
 		//Creo un estado, tambien lo haria por enums
-		Estado estado = new Estado("sano");
+		Estado estado = new Estado("sin efecto");
 		
 		//Creo las tres categorias de movimiento que hay, tambien lo haria por enums
 		Categoria categoriaFisico = new Categoria("fisico");
@@ -45,12 +45,14 @@ public class MainApp {
 		movimientoCharizard.add(new Movimiento("Ataque Ala", tipoVolador, categoriaFisico, 35, 100, 60));
 		movimientoCharizard.add(new Movimiento("Cuchillada", tipoNormal, categoriaFisico, 20, 100, 70)); 
 		movimientoCharizard.add(new Movimiento("Colmillo Igneo", tipoFuego, categoriaFisico, 15, 95, 65)); 
-		
+		movimientoCharizard.add(new Movimiento("Cambiar Pokemon", null, null, 0, 0, 0)); 
+
 		ArrayList<Movimiento> movimientoNidoking = new ArrayList<Movimiento>();
 		movimientoNidoking.add(new Movimiento("Golpe", tipoNormal, categoriaFisico, 10, 100, 120)); 
 		movimientoNidoking.add(new Movimiento("Cornada", tipoNormal, categoriaFisico, 25, 100, 65));
 		movimientoNidoking.add(new Movimiento("Guardia Baja", tipoNormal, categoriaFisico, 20, 100, 70)); 
-		movimientoNidoking.add(new Movimiento("Terremoto", tipoTierra, categoriaFisico, 10, 100, 100)); 
+		movimientoNidoking.add(new Movimiento("Terremoto", tipoTierra, categoriaFisico, 10, 100, 100));
+		movimientoNidoking.add(new Movimiento("Cambiar Pokemon", null, null, 0, 0, 0)); 
 
 		ArrayList<Pokemon> pokemones1 = new ArrayList<Pokemon>();
 		
@@ -58,6 +60,7 @@ public class MainApp {
 		pokemones1.add(new Pokemon("Nidoking", tipoVeneno, tipoTierra, estado, 102, 77, 85, 75, 85, movimientoNidoking, 136, 40));
 		
 		Equipo equipo1 = new Equipo(pokemones1);
+		
 		Entrenador entrenador1 = new Entrenador("Pepe", equipo1);
 		
 
@@ -66,13 +69,15 @@ public class MainApp {
 		movimientoGolduck.add(new Movimiento("Acua Cola", tipoAgua, categoriaFisico, 10, 90, 90)); 
 		movimientoGolduck.add(new Movimiento("Hidropulso", tipoAgua, categoriaEspecial, 20, 100, 60));
 		movimientoGolduck.add(new Movimiento("Chirrido", tipoNormal, categoriaEstado, 40, 85, 0)); 
-		movimientoGolduck.add(new Movimiento("Cabezazo Zen", tipoPsiquico, categoriaFisico, 15, 90, 80)); 
+		movimientoGolduck.add(new Movimiento("Cabezazo Zen", tipoPsiquico, categoriaFisico, 15, 90, 80));
+		movimientoGolduck.add(new Movimiento("Cambiar Pokemon", null, null, 0, 0, 0)); 
 		
 		ArrayList<Movimiento> movimientoVenusaur = new ArrayList<Movimiento>();
 		movimientoVenusaur.add(new Movimiento("Hoja Afilada", tipoPlanta, categoriaFisico, 25, 95, 55)); 
 		movimientoVenusaur.add(new Movimiento("Fuerza", tipoNormal, categoriaFisico, 15, 100, 80)); 
 		movimientoVenusaur.add(new Movimiento("Desarrollo", tipoNormal, categoriaEstado, 20, 100, 0)); 
 		movimientoVenusaur.add(new Movimiento("Corte", tipoNormal, categoriaFisico, 30, 95, 50)); 
+		movimientoVenusaur.add(new Movimiento("Cambiar Pokemon", null, null, 0, 0, 0)); 
 
 		ArrayList<Pokemon> pokemones2 = new ArrayList<Pokemon>();
 		
@@ -83,19 +88,11 @@ public class MainApp {
 		
 		Entrenador entrenador2 = new Entrenador("Juan", equipo2);
 		
-		
+		//Creamos el combate
 		Combate combate = new Combate(entrenador1,entrenador2);
 		
+		//Iniciamos el combate pokemon
 		combate.combatePokemon();
-		
-//		combate.start();
-		
-//		//equipo.mostrarEquipo();
-//		Pokemon poke = equipo.elegirPokemon();
-//		
-//		System.out.println(poke.getNombre());
-	
-		
 		
 		
 	}

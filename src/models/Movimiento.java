@@ -88,14 +88,7 @@ public class Movimiento extends Pokemon{
 		return potencia;
 	}
 
-	/**
-	 * Usa la formula del danyo que hace un movimiento atacando a un pokemon
-	 * 
-	 * @param pokemon1 Pokemon que ha realizado el movimiento
-	 * @param pokemon2 Pokemon que va a recibir el danyo
-	 * @return Danyo del ataque
-	 */
-
+	
 	/**
 	 * Usa la formula del danyo que hace un movimiento atacando a un pokemon
 	 * 
@@ -127,13 +120,22 @@ public class Movimiento extends Pokemon{
 			damage = (int) (0.01 * b * pokemon1.tipo1.getEfectividad(pokemon1.movimiento.get(movimiento), pokemon2) * v
 					* (((0.2 * pokemon1.getLevel() + 1) * pokemon1.getSpecialAttack()
 							* pokemon1.movimiento.get(movimiento).getPotencia()) / (25 * pokemon2.getSpecialDefense()) + 2));
+		} 
+		//Si el ataque es de tipo estado
+		else {
+			if(pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("chirrido")) {
+				pokemon2.setDefense(pokemon2.getDefense() - 2);
+				System.out.println("Chirrido bajo la defensa a " + pokemon2.getNombre());
+				damage = 1000000; //Pongo esta cantidad para luego en la clase combate identifique que es un ataque de tipo estado y poder omitir el ataque
+				
+			} else if (pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("desarrollo")) {
+				pokemon1.setSpecialAttack(pokemon1.getSpecialAttack() + 1);
+				System.out.println("Desarrollo subio el ataque especial de " + pokemon1.getNombre());
+				damage = 1000000;
+			}
 		}
 		return damage;
 	}
 
-	public Movimiento getMovimiento(int movimiento) {
-
-		return this.movimiento.get(movimiento);
-	}
 
 }

@@ -10,10 +10,10 @@ public class Pokemon {
 	protected TipoPokemon tipo1;
 	protected TipoPokemon tipo2;
 	protected Estado estado;
-	protected int attack;
-	protected int defense;
-	protected int specialAttack;
-	protected int specialDefense;
+	protected double attack;
+	protected double defense;
+	protected double specialAttack;
+	protected double specialDefense;
 	protected int speed;
 	protected ArrayList<Movimiento> movimiento;
 	protected int maxHP;
@@ -63,19 +63,27 @@ public class Pokemon {
 		return estado;
 	}
 
-	public int getAttack() {
+	public double getAttack() {
 		return attack;
 	}
 
-	public int getDefense() {
+	public double getDefense() {
 		return defense;
 	}
+	
+	public void setDefense(double defense) {
+		this.defense = defense;
+	}
 
-	public int getSpecialAttack() {
+	public void setSpecialAttack(double specialAttack) {
+		this.specialAttack = specialAttack;
+	}
+
+	public double getSpecialAttack() {
 		return specialAttack;
 	}
 
-	public int getSpecialDefense() {
+	public double getSpecialDefense() {
 		return specialDefense;
 	}
 
@@ -111,8 +119,12 @@ public class Pokemon {
 	public void mostrarMovimientos() {
 		int contador = 1;
 		for (Movimiento movimiento : this.movimiento) {
-			System.out.println(contador++ + ". " + movimiento.getNombre() + "\t" + movimiento.getActualPP() + "/"
-					+ movimiento.getMaxPP());
+			if (contador <= 4) {
+				System.out.println(contador++ + ". " + movimiento.getNombre() + "\t" + movimiento.getActualPP() + "/"
+						+ movimiento.getMaxPP());
+			} else { //Para que cuando sea el quinto muestre la opcion marcar pokemon
+				System.out.println(contador++ + ". " + movimiento.getNombre());
+			}
 		}
 
 	}
@@ -130,7 +142,7 @@ public class Pokemon {
 		int opc = Integer.parseInt(s.nextLine());
 
 		// Para que reste uno cada vez que se usa ese ataque
-		movimientos.get(opc - 1).setActualPP(movimientos.get(opc - 1).getActualPP() - 1); 
+		movimientos.get(opc - 1).setActualPP(movimientos.get(opc - 1).getActualPP() - 1);
 
 		return (opc - 1);
 	}
@@ -138,7 +150,7 @@ public class Pokemon {
 	// toString
 	@Override
 	public String toString() {
-		return nombre + " ----> HP = " + actualHP + ", estado = " + estado.getEstado(estado) + ", nivel = " + level;
+		return nombre + " ----> HP = " + actualHP + ", estado = " + estado.getEstado() + ", nivel = " + level;
 	}
 
 }

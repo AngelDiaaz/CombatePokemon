@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Scanner ;
+import java.util.Scanner;
 import java.util.Iterator;
 
 public class Entrenador extends Equipo {
@@ -47,7 +47,7 @@ public class Entrenador extends Equipo {
 			iterador.next();
 			contador++;
 		}
-		
+
 		return iterador.next();
 
 	}

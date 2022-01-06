@@ -70,7 +70,7 @@ public class Pokemon {
 	public double getDefense() {
 		return defense;
 	}
-	
+
 	public void setDefense(double defense) {
 		this.defense = defense;
 	}
@@ -122,7 +122,7 @@ public class Pokemon {
 			if (contador <= 4) {
 				System.out.println(contador++ + ". " + movimiento.getNombre() + "\t" + movimiento.getActualPP() + "/"
 						+ movimiento.getMaxPP());
-			} else { //Para que cuando sea el quinto muestre la opcion marcar pokemon
+			} else { // Para que cuando sea el quinto muestre la opcion marcar pokemon
 				System.out.println(contador++ + ". " + movimiento.getNombre());
 			}
 		}

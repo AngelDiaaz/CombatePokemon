@@ -1,27 +1,19 @@
 package models;
 
 public class Categoria {
-	
-	//Propiedades
+
+	// Propiedades
 	private String nombre;
 
-	
-	//Constructor
+	// Constructor
 	public Categoria(String nombre) {
 		super();
 		this.nombre = nombre;
 	}
 
-	
-	//Getters y setters
+	// Getters y setters
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

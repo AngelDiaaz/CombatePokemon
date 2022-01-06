@@ -1,6 +1,6 @@
 package models;
 
-public class Movimiento extends Pokemon{
+public class Movimiento extends Pokemon {
 
 	// Propiedades
 	private String nombre;
@@ -19,7 +19,6 @@ public class Movimiento extends Pokemon{
 	private Categoria categoria;
 
 	// Constructores
-	// Para movimientos directos
 	public Movimiento(String nombre, TipoPokemon tipo1, Categoria categoria, int maxPP, int precision, int potencia) {
 		super(null);
 		this.nombre = nombre;
@@ -48,7 +47,7 @@ public class Movimiento extends Pokemon{
 		return maxPP;
 	}
 
-	public  int getActualPP() {
+	public int getActualPP() {
 		return actualPP;
 	}
 
@@ -88,7 +87,8 @@ public class Movimiento extends Pokemon{
 		return potencia;
 	}
 
-	
+	// Metodos
+
 	/**
 	 * Usa la formula del danyo que hace un movimiento atacando a un pokemon
 	 * 
@@ -115,20 +115,25 @@ public class Movimiento extends Pokemon{
 					* (((0.2 * pokemon1.getLevel() + 1) * pokemon1.getAttack()
 							* pokemon1.movimiento.get(movimiento).getPotencia()) / (25 * pokemon2.getDefense()) + 2));
 		}
-		//Si el ataque es de tipo especial
+		// Si el ataque es de tipo especial
 		else if (pokemon1.movimiento.get(movimiento).getCategoria().getNombre().equalsIgnoreCase("especial")) {
 			damage = (int) (0.01 * b * pokemon1.tipo1.getEfectividad(pokemon1.movimiento.get(movimiento), pokemon2) * v
 					* (((0.2 * pokemon1.getLevel() + 1) * pokemon1.getSpecialAttack()
-							* pokemon1.movimiento.get(movimiento).getPotencia()) / (25 * pokemon2.getSpecialDefense()) + 2));
-		} 
-		//Si el ataque es de tipo estado
+							* pokemon1.movimiento.get(movimiento).getPotencia()) / (25 * pokemon2.getSpecialDefense())
+							+ 2));
+		}
+		// Si el ataque es de tipo estado
 		else {
-			if(pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("chirrido")) {
+			if (pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("chirrido")) { // Para el movimiento
+																								// chirrido
 				pokemon2.setDefense(pokemon2.getDefense() - 2);
 				System.out.println("Chirrido bajo la defensa a " + pokemon2.getNombre());
-				damage = 1000000; //Pongo esta cantidad para luego en la clase combate identifique que es un ataque de tipo estado y poder omitir el ataque
-				
-			} else if (pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("desarrollo")) {
+				damage = 1000000; // Pongo esta cantidad para luego en la clase combate identifique que es un
+									// ataque de tipo estado y poder omitirlo
+
+			} else if (pokemon1.movimiento.get(movimiento).getNombre().equalsIgnoreCase("desarrollo")) { // Para el
+																											// movimiento
+																											// desarrollo
 				pokemon1.setSpecialAttack(pokemon1.getSpecialAttack() + 1);
 				System.out.println("Desarrollo subio el ataque especial de " + pokemon1.getNombre());
 				damage = 1000000;
@@ -136,6 +141,5 @@ public class Movimiento extends Pokemon{
 		}
 		return damage;
 	}
-
 
 }
